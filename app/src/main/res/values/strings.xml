@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Clean Architecture</string>
+    <string name="enter_the_name">Enter the name</string>
+    <string name="enter_the_phone_number">Enter the phone number</string>
+    <string name="enter_the_gender">Enter the gender</string>
+    <string name="enter_the_email_id">Enter the email id</string>
+    <string name="no_profiles_found">No User profiles found!</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
 </resources>

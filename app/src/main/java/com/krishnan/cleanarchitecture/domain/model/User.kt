@@ -1,4 +1,4 @@
 package com.krishnan.cleanarchitecture.domain.model
 
 
-data class User(val name: String, val email: String, val mobile: String, val gender: String)
+data class User(val id: String,val name: String, val email: String, val mobile: String, val gender: String)

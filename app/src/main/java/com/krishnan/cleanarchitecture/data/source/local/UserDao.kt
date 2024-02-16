@@ -1,18 +1,17 @@
 package com.krishnan.cleanarchitecture.data.source.local
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
 
     @Query("SELECT * FROM UserEntity")
-    suspend fun getUsers(): Flow<List<UserEntity>>
+    fun getUsers(): Flow<List<UserEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     suspend fun insertUsers(userEntities: List<UserEntity>)
 
     @Query("Delete from UserEntity")

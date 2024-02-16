@@ -5,6 +5,7 @@ import com.krishnan.cleanarchitecture.data.source.remote.UserApi
 import com.krishnan.cleanarchitecture.data.source.remote.UserApi.Companion.BASE_URL
 import com.krishnan.cleanarchitecture.domain.repository.remote.UserRepo
 import com.krishnan.cleanarchitecture.domain.usecase.local.UserLocalUseCase
+import com.krishnan.cleanarchitecture.domain.usecase.remote.DeleteUserDto
 import com.krishnan.cleanarchitecture.domain.usecase.remote.GetUsers
 import com.krishnan.cleanarchitecture.domain.usecase.remote.InsertUserDto
 import com.krishnan.cleanarchitecture.domain.usecase.remote.UserRemoteUseCase
@@ -62,7 +63,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesUserRemoteUseCase(getUsers: GetUsers, insertUserDto: InsertUserDto) =
-        UserRemoteUseCase(getUsers = getUsers, insertUserDto = insertUserDto)
+    fun provideDeleteUserDto(userRepo: UserRepo, getUsers: GetUsers): DeleteUserDto {
+        return DeleteUserDto(userRepo, getUsers)
+    }
+
+    @Provides
+    @Singleton
+    fun providesUserRemoteUseCase(getUsers: GetUsers, insertUserDto: InsertUserDto,deleteUserDto: DeleteUserDto) =
+        UserRemoteUseCase(getUsers = getUsers, insertUserDto = insertUserDto, deleteUserDto = deleteUserDto)
 
 }

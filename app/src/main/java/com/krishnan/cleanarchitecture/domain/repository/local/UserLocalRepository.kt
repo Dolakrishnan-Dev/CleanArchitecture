@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserLocalRepository {
 
-    suspend fun getUsers(): Flow<List<UserEntity>>
+    fun getUsers(): Flow<List<UserEntity>>
 
 
     suspend fun insertUserEntities(userEntities: List<UserEntity>)

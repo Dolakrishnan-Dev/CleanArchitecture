@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 
 class UserLocalRepoImpl @Inject constructor(private val userDao: UserDao) : UserLocalRepository {
-    override suspend fun getUsers(): Flow<List<UserEntity>> = userDao.getUsers()
+    override fun getUsers(): Flow<List<UserEntity>> = userDao.getUsers()
 
     override suspend fun insertUserEntities(userEntities: List<UserEntity>) =
         userDao.insertUsers(userEntities)

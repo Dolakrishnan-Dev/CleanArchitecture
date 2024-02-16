@@ -1,6 +1,7 @@
 package com.krishnan.cleanarchitecture.data.repository
 
 import com.krishnan.cleanarchitecture.data.model.UserDto
+import com.krishnan.cleanarchitecture.data.model.UserInsertDto
 import com.krishnan.cleanarchitecture.data.source.remote.ApiResult
 import com.krishnan.cleanarchitecture.data.source.remote.UserApi
 import com.krishnan.cleanarchitecture.data.source.remote.safeApiCall
@@ -14,7 +15,13 @@ class UserRepoImpl @Inject constructor(private val userApi: UserApi) : UserRepo 
         userApi.getUsers()
     }
 
-    override suspend fun addUser(userDto: UserDto): ApiResult<Any> = safeApiCall {
+    override suspend fun addUser(userDto: UserInsertDto): ApiResult<Any> = safeApiCall {
         userApi.postUser(userDto)
     }
+
+    override suspend fun deleteUser(userId: String): ApiResult<Any> = safeApiCall{
+        userApi.deleteUser(userId)
+    }
+
+
 }

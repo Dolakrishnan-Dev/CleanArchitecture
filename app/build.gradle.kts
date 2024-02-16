@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.firebase)
 }
 
 android {
@@ -54,6 +53,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
@@ -86,6 +86,7 @@ dependencies {
     // Room
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
     // coil
     implementation(libs.coil.kt.coil.compose)
